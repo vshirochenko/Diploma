@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Diploma.DAL.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IMunicipalityRepository<T> where T : class
     {
         // Получаем все элементы из базы
-        IEnumerable<T> SelectAll();
+        IQueryable<T> SelectAll();
         // Получаем конкретный элемент по признаку
         T SelectByID(object id);
         // Вставляем элемент
@@ -18,6 +18,8 @@ namespace Diploma.DAL.Repositories
         void Update(T entity);
         // Удаляем элемент
         void Delete(T entity);
+        // Удаляем элемент по id
+        void Delete(int id);
         // Сохраняем изменения
         void Save();
     }
