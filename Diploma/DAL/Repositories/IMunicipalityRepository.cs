@@ -9,7 +9,7 @@ namespace Diploma.DAL.Repositories
     public interface IMunicipalityRepository<T> where T : class
     {
         // Получаем все элементы из базы
-        IQueryable<T> SelectAll();
+        IEnumerable<T> SelectAll();
         // Получаем конкретный элемент по признаку
         T SelectByID(object id);
         // Вставляем элемент

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Diploma.Models.Facility>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Имущество</title>
+</head>
+<body>
+    <div>
+        @foreach (var facility in Model)
+        {
+            <p style="color: blue">
+                @facility.Name
+            </p>
+        }
+    </div>
+</body>
+</html>

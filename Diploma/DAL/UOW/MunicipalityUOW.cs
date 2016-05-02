@@ -11,6 +11,8 @@ namespace Diploma.DAL.UOW
     {
         private MunicipalityContext DbContext { get; set; }
 
+        #region Репозитории
+
         private IMunicipalityRepository<Facility> _facilities;
         private IMunicipalityRepository<Owner> _owners;
         private IMunicipalityRepository<Address> _addresses;
@@ -39,15 +41,14 @@ namespace Diploma.DAL.UOW
             }
         }
 
-        
-        public void Save()
+        #endregion
+
+        public void SaveChanges()
         {
             DbContext.SaveChanges();
         }
 
-
-
-        // TODO! Read about parameters!
+        // TODO! Прочитать про параметры
         private void CreateDbContext()
         {
             DbContext = new MunicipalityContext();
@@ -58,6 +59,7 @@ namespace Diploma.DAL.UOW
         }
 
 
+        #region Освобождение памяти
 
         public void Dispose()
         {
@@ -75,5 +77,7 @@ namespace Diploma.DAL.UOW
                 }
             }
         }
+
+        #endregion
     }
 }

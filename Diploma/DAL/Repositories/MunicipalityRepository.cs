@@ -21,18 +21,29 @@ namespace Diploma.DAL.Repositories
             DbSet = DbContext.Set<T>();
         }
 
-        public IQueryable<T> SelectAll()
+        /// <summary>
+        /// Получаем все элементы сущности
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<T> SelectAll()
         {
-            return DbSet;
+            return DbSet.AsEnumerable();
         }
 
-        // Get entity by id
+        /// <summary>
+        /// Получаем сущность по id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public T SelectByID(object id)
         {
             return DbSet.Find(id);
         }
 
-        // Add entity to db
+        /// <summary>
+        /// Добавляем элемент в бд
+        /// </summary>
+        /// <param name="entity"></param>
         public void Insert(T entity)
         {
             DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
@@ -75,7 +86,7 @@ namespace Diploma.DAL.Repositories
             var entity = SelectByID(id);
             if (entity == null)
             {
-                // Not found. Already is deleted.
+                // Элемент не найден -> уже удален
                 return;
             }
             Delete(entity);

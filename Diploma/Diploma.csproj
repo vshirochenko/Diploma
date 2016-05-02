@@ -107,6 +107,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FacilityController.cs" />
     <Compile Include="DAL\MunicipalityContext.cs" />
     <Compile Include="DAL\Repositories\IMunicipalityRepository.cs" />
     <Compile Include="DAL\Repositories\MunicipalityRepository.cs" />
@@ -119,10 +120,14 @@
     <Compile Include="Models\Facility.cs" />
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FacilityService\FacilityService.cs" />
+    <Compile Include="Services\FacilityService\IFacilityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Facility\Create.cshtml" />
+    <None Include="Views\Facility\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,13 +8,13 @@ using Diploma.Models;
 
 namespace Diploma.DAL.UOW
 {
-    interface IMunicipalityUOW
+    public interface IMunicipalityUOW
     {
         IMunicipalityRepository<Facility> Facilites { get; }
         IMunicipalityRepository<Owner> Owners { get; }
         IMunicipalityRepository<Address> Addresses { get; }
 
         // Save pending changes to database
-        void Save();
+        void SaveChanges();
     }
 }

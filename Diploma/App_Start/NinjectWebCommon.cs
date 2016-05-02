@@ -1,3 +1,6 @@
+using Diploma.DAL.UOW;
+using Diploma.Services.FacilityService;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Diploma.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Diploma.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +64,9 @@ namespace Diploma.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IMunicipalityUOW>().To<MunicipalityUOW>();
+
+            kernel.Bind<IFacilityService>().To<FacilityService>();
         }        
     }
 }
