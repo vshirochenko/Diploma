@@ -22,6 +22,7 @@ namespace Diploma.Controllers
             return View(facilities);
         }
 
+        // Открываем форму создания нового элемента
         public ActionResult Create()
         {
             return View();

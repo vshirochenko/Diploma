@@ -9,14 +9,14 @@ namespace Diploma.Services.FacilityService
 {
     public class FacilityService : IFacilityService
     {
-        private IMunicipalityUOW MunicipalityUow;
+        private IMunicipalityUOW _municipalityUow;
 
         public IMunicipalityRepository<Facility> FacilityRepository { get; set; }
 
         [Inject]
         public FacilityService(IMunicipalityUOW uow)
         {
-            this.MunicipalityUow = uow;
+            this._municipalityUow = uow;
             FacilityRepository = uow.Facilites;
         }
 

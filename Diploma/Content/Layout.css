@@ -1,0 +1,11 @@
+﻿.navbar {
+    background: green;
+}
+
+a {
+    color: yellow !important;
+}
+
+a.navbar-brand {
+    color: white !important;
+}
