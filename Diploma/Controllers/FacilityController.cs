@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,9 +24,29 @@ namespace Diploma.Controllers
         }
 
         // Открываем форму создания нового элемента
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Facility facility)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    FacilityService.CreateFacility(facility);
+                    FacilityService.SaveFacility();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (RetryLimitExceededException)
+            {
+                ModelState.AddModelError("", "Невозможно сохранить изменения");
+            }
+            return View(facility);
         }
     }
 }

@@ -2,10 +2,14 @@
     background: green;
 }
 
-a {
+.navbar a {
     color: yellow !important;
 }
 
 a.navbar-brand {
     color: white !important;
+}
+
+.container.body-content {
+    margin-top: 100px !important; 
 }

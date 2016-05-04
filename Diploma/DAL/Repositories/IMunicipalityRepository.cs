@@ -20,7 +20,5 @@ namespace Diploma.DAL.Repositories
         void Delete(T entity);
         // Удаляем элемент по id
         void Delete(int id);
-        // Сохраняем изменения
-        void Save();
     }
 }

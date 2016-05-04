@@ -1,23 +1,57 @@
 ﻿@model IEnumerable<Diploma.Models.Facility>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Объекты недвижимого имущества</h2>
 
-<html>
-<head>
-    <title>Имущество</title>
-</head>
-<body>
-    <div>
-        @foreach (var facility in Model)
-        {
-            <p style="color: blue">
-                @facility.Name
-            </p>
-        }
-    </div>
-</body>
-</html>
+<p>
+    @Html.ActionLink("Добавить новую запись", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th> № п/п </th>
+        <th> Реестровый порядковый номер </th>
+        <th> Наименование </th>
+        <th> Кадастровый номер </th>
+        <th> Площадь </th>
+        <th> Балансовая стоимость </th>
+        <th> Статус </th>
+    </tr>
+
+
+    @foreach (var facility in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => facility.PPNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.RegisterSerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.CadastralNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.Square)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.BalanceCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => facility.Status)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>*@
+        </tr>
+    }
+
+</table>

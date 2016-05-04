@@ -91,10 +91,5 @@ namespace Diploma.DAL.Repositories
             }
             Delete(entity);
         }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

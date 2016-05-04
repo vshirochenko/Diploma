@@ -9,7 +9,7 @@ namespace Diploma.Services.FacilityService
 {
     public class FacilityService : IFacilityService
     {
-        private IMunicipalityUOW _municipalityUow;
+        private readonly IMunicipalityUOW _municipalityUow;
 
         public IMunicipalityRepository<Facility> FacilityRepository { get; set; }
 
@@ -32,12 +32,12 @@ namespace Diploma.Services.FacilityService
 
         public void CreateFacility(Facility facility)
         {
-            throw new NotImplementedException();
+            FacilityRepository.Insert(facility);
         }
 
         public void SaveFacility()
         {
-            throw new NotImplementedException();
+            _municipalityUow.SaveChanges();
         }
     }
 }
