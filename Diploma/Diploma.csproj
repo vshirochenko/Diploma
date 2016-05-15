@@ -164,6 +164,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Facility\Create.cshtml" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
+    <Content Include="Views\Facility\Edit.cshtml" />
     <None Include="Views\Facility\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

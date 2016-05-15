@@ -31,6 +31,7 @@ namespace Diploma.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Facility facility)
         {
             try
@@ -47,6 +48,43 @@ namespace Diploma.Controllers
                 ModelState.AddModelError("", "Невозможно сохранить изменения");
             }
             return View(facility);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Facility facility = FacilityService.GetFacility(id);
+            if (facility == null)
+            {
+                return HttpNotFound(String.Format("Элемент с id = {0} не найден!", id));
+            }
+            return View(facility);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPost(Facility facilityToUpdate)
+        {
+            if (facilityToUpdate == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            try
+            {
+                FacilityService.UpdateFacility(facilityToUpdate);
+                FacilityService.SaveFacility();
+
+                return RedirectToAction("Index");
+            }
+            catch (RetryLimitExceededException)
+            {
+                ModelState.AddModelError("", "Невозможно сохранить изменения");
+            }
+            return View(facilityToUpdate);
         }
     }
 }

@@ -25,14 +25,19 @@ namespace Diploma.Services.FacilityService
             return FacilityRepository.SelectAll();
         }
 
-        public Facility GetFacility(int id)
+        public Facility GetFacility(int? id)
         {
-            throw new NotImplementedException();
+            return FacilityRepository.SelectByID(id);
         }
 
         public void CreateFacility(Facility facility)
         {
             FacilityRepository.Insert(facility);
+        }
+
+        public void UpdateFacility(Facility facility)
+        {
+            FacilityRepository.Update(facility);
         }
 
         public void SaveFacility()
