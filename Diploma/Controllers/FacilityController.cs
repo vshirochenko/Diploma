@@ -23,6 +23,20 @@ namespace Diploma.Controllers
             return View(facilities);
         }
 
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Facility facility = FacilityService.GetFacility(id);
+            if (facility == null)
+            {
+                return HttpNotFound(String.Format("Элемент с id = {0} не найден!", id));
+            }
+            return View(facility);
+        }
+
         // Открываем форму создания нового элемента
         [HttpGet]
         public ActionResult Create()

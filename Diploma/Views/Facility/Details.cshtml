@@ -1,0 +1,73 @@
+﻿@model Diploma.Models.Facility
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link type="text/css" href="~/Content/Details.css" rel="stylesheet"/>
+
+<h2>Информация об объекте имущества</h2>
+
+<div>
+    <h4>Объект</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PPNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterSerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterSerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CadastralNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CadastralNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Square)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Square)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BalanceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BalanceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать элемент", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться к списку объектов имущества", "Index")
+</p>
+

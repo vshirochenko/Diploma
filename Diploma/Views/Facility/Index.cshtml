@@ -47,9 +47,9 @@
                 @Html.DisplayFor(modelItem => facility.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = facility.Id }) |
-                @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                @Html.ActionLink("Редактировать", "Edit", new { id = facility.Id }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = facility.Id }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
             </td>
         </tr>
     }

@@ -123,6 +123,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Details.css" />
     <Content Include="Content\images\bagr_flag.gif" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\StartPage.css" />
@@ -152,6 +153,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Facility.cs" />
     <Compile Include="Models\Owner.cs" />
@@ -165,6 +167,7 @@
     <Content Include="Views\Facility\Create.cshtml" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
     <Content Include="Views\Facility\Edit.cshtml" />
+    <Content Include="Views\Facility\Details.cshtml" />
     <None Include="Views\Facility\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

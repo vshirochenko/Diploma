@@ -19,6 +19,7 @@ namespace Diploma.Models
         /// <summary>
         /// Реестровый порядковый номер объекта
         /// </summary>
+        [MaxLength(50)]
         [DisplayName("Реестровый порядковый номер")]
         public string RegisterSerialNumber { get; set; }
         /// <summary>
