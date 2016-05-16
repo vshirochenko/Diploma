@@ -40,6 +40,11 @@ namespace Diploma.Services.FacilityService
             FacilityRepository.Update(facility);
         }
 
+        public void DeleteFacility(Facility facility)
+        {
+            FacilityRepository.Delete(facility);
+        }
+
         public void SaveFacility()
         {
             _municipalityUow.SaveChanges();

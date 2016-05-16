@@ -13,6 +13,8 @@ namespace Diploma.Services.FacilityService
         void CreateFacility(Facility facility);
         // Применяем изменения к уже существующему объекту
         void UpdateFacility(Facility facility);
+        // Удаляем элемент
+        void DeleteFacility(Facility facility);
         // Сохраняем изменения
         void SaveFacility();
     }

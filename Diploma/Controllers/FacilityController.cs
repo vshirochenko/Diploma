@@ -100,5 +100,41 @@ namespace Diploma.Controllers
             }
             return View(facilityToUpdate);
         }
+
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage =
+                    "Удаление прошло неуспешно. Попробуйте повторить операцию снова или свяжитесь с администратором.";
+            }
+            Facility facility = FacilityService.GetFacility(id);
+            if (facility == null)
+            {
+                return HttpNotFound();
+            }
+            return View(facility);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                Facility facility = FacilityService.GetFacility(id);
+                FacilityService.DeleteFacility(facility);
+                FacilityService.SaveFacility();
+            }
+            catch (RetryLimitExceededException)
+            {
+                return RedirectToAction("Delete", new {id = id, saveChangesError = true});
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

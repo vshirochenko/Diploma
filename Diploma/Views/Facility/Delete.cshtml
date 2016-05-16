@@ -1,0 +1,79 @@
+﻿@model Diploma.Models.Facility
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Вы уверены, что хотите удалить этот элемент?</h2>
+
+<div>
+    <h4>Объект</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PPNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterSerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterSerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CadastralNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CadastralNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Square)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Square)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BalanceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BalanceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Удалить</button> |
+            @Html.ActionLink("Вернуться к списку объектов имущества", "Index")
+        </div>
+    }
+</div>
+
