@@ -4,10 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Diploma.Models;
+using Diploma.ViewModels;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Diploma.DAL
 {
-    public class MunicipalityContext : DbContext
+    public class MunicipalityContext : IdentityDbContext<AppUser>
     {
         public MunicipalityContext() : base("MunicipalityContext") { }
 

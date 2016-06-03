@@ -23,6 +23,7 @@ namespace Diploma.Controllers
             return View(facilities);
         }
 
+        [Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
