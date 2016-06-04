@@ -13,7 +13,7 @@ namespace Diploma.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606031354512_init"; }
+            get { return "201606041455556_init"; }
         }
         
         string IMigrationMetadata.Source

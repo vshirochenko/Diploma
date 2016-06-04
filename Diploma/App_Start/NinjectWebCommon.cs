@@ -1,4 +1,5 @@
 using Diploma.DAL.UOW;
+using Diploma.Services.AddressService;
 using Diploma.Services.FacilityService;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Diploma.App_Start.NinjectWebCommon), "Start")]
@@ -67,6 +68,8 @@ namespace Diploma.App_Start
             kernel.Bind<IMunicipalityUOW>().To<MunicipalityUOW>();
 
             kernel.Bind<IFacilityService>().To<FacilityService>();
+
+            kernel.Bind<IAddressService>().To<AddressService>();
         }        
     }
 }

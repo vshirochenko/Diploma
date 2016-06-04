@@ -159,6 +159,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\modalform.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -177,12 +178,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606031354512_init.cs" />
-    <Compile Include="Migrations\201606031354512_init.Designer.cs">
-      <DependentUpon>201606031354512_init.cs</DependentUpon>
+    <Compile Include="Migrations\201606041455556_init.cs" />
+    <Compile Include="Migrations\201606041455556_init.Designer.cs">
+      <DependentUpon>201606041455556_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Services\AddressService\AddressService.cs" />
+    <Compile Include="Services\AddressService\IAddressService.cs" />
     <Compile Include="ViewModels\AppUser.cs" />
     <Compile Include="Models\Facility.cs" />
     <Compile Include="Models\Owner.cs" />
@@ -203,6 +206,7 @@
     <Content Include="Views\Facility\Delete.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Facility\_EditFacilityAddress.cshtml" />
     <None Include="Views\Facility\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -220,8 +224,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606031354512_init.resx">
-      <DependentUpon>201606031354512_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606041455556_init.resx">
+      <DependentUpon>201606041455556_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,15 +15,18 @@ namespace Diploma.Models
         /// <summary>
         /// Населенный пункт
         /// </summary>
+        [DisplayName("Населенный пункт")]
         public string Locality { get; set; }
         /// <summary>
         /// Улица
         /// </summary>
+        [DisplayName("Улица")]
         public string Street { get; set; }
         /// <summary>
         /// Номер дома
         /// </summary>
-        public int HouseNumber { get; set; }
+        [DisplayName("Номер дома")]
+        public int? HouseNumber { get; set; }
 
 
         public virtual Facility Facility { get; set; }

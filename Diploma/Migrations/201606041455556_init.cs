@@ -14,7 +14,7 @@ namespace Diploma.Migrations
                         FacilityId = c.Int(nullable: false),
                         Locality = c.String(),
                         Street = c.String(),
-                        HouseNumber = c.Int(nullable: false),
+                        HouseNumber = c.Int(),
                     })
                 .PrimaryKey(t => t.FacilityId)
                 .ForeignKey("dbo.Facilities", t => t.FacilityId)

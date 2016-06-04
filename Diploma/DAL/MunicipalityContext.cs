@@ -13,6 +13,17 @@ namespace Diploma.DAL
     {
         public MunicipalityContext() : base("MunicipalityContext") { }
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+
+        //    modelBuilder.Entity<Facility>()
+        //        .HasOptional(a => a.Address)
+        //        .WithOptionalDependent()
+        //        .WillCascadeOnDelete(true);
+            
+        //}
+
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<Address> Addresses { get; set; }

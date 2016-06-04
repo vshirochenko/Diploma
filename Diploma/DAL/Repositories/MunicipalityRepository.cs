@@ -69,16 +69,19 @@ namespace Diploma.DAL.Repositories
 
         public void Delete(T entity)
         {
-            DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
-            if (dbEntityEntry.State != EntityState.Deleted)
-            {
-                dbEntityEntry.State = EntityState.Deleted;
-            }
-            else
-            {
-                DbSet.Attach(entity);
-                DbSet.Remove(entity);
-            }
+            DbSet.Remove(entity);
+
+
+            //DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+            //if (dbEntityEntry.State != EntityState.Deleted)
+            //{
+            //    dbEntityEntry.State = EntityState.Deleted;
+            //}
+            //else
+            //{
+            //    DbSet.Attach(entity);
+            //    DbSet.Remove(entity);
+            //}
         }
 
         public void Delete(int id)

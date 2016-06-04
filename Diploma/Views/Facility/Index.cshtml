@@ -4,6 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- modal placeholder-->
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
 <h2>Объекты недвижимого имущества</h2>
 
 <p>
@@ -49,9 +58,15 @@
             <td>
                 @Html.ActionLink("Редактировать", "Edit", new { id = facility.Id }) |
                 @Html.ActionLink("Подробнее", "Details", new { id = facility.Id }) |
-                @Html.ActionLink("Удалить", "Delete", new { id = facility.Id })
+                @Html.ActionLink("Удалить", "Delete", new { id = facility.Id }) |
+                @Html.ActionLink("Добавить адрес", "EditFacilityAddress", new { id = facility.Id }, new { data_modal = "" })
             </td>
         </tr>
     }
 
 </table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modalform")
+}

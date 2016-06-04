@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Diploma.Models;
+using Diploma.Services.AddressService;
 using Diploma.Services.FacilityService;
 using Ninject;
 
@@ -15,6 +17,8 @@ namespace Diploma.Controllers
     {
         [Inject]
         public IFacilityService FacilityService { get; set; } 
+        [Inject]
+        public IAddressService AddressService { get; set; }
 
         // GET: Facilities
         public ActionResult Index()
@@ -23,7 +27,7 @@ namespace Diploma.Controllers
             return View(facilities);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -136,6 +140,37 @@ namespace Diploma.Controllers
                 return RedirectToAction("Delete", new {id = id, saveChangesError = true});
             }
             return RedirectToAction("Index");
+        }
+
+
+
+        public ActionResult EditFacilityAddress(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Address address = AddressService.GetAddress(id);
+            if (address == null)
+            {
+                return HttpNotFound(String.Format("Элемент с id = {0} не найден!", id));
+            }
+            return PartialView("_EditFacilityAddress", address);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditFacilityAddress(Address address)
+        {
+            if (ModelState.IsValid)
+            {
+                AddressService.UpdateAddress(address);
+                AddressService.SaveAddress();
+                return Json(new {success = true});
+            }
+
+            return PartialView("_EditFacilityAddress", address);
         }
     }
 }
