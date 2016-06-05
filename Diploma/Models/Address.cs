@@ -28,6 +28,15 @@ namespace Diploma.Models
         [DisplayName("Номер дома")]
         public int? HouseNumber { get; set; }
 
+        /// <summary>
+        /// Широта
+        /// </summary>
+        public double GeoLatitude { get; set; }
+
+        /// <summary>
+        /// Долгота
+        /// </summary>
+        public double GeoLongitude { get; set; }
 
         public virtual Facility Facility { get; set; }
     }

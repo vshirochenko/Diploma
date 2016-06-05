@@ -147,6 +147,7 @@
     <Content Include="Content\FacilityDetails.css" />
     <Content Include="Content\FacilityDelete.css" />
     <Content Include="Content\images\bagr_flag.gif" />
+    <Content Include="Content\images\google_maps.jpeg" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\Register.css" />
     <Content Include="Content\StartPage.css" />
@@ -158,8 +159,10 @@
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\modalform.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -212,6 +215,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Facility\GoogleMap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

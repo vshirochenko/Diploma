@@ -19,54 +19,82 @@
     @Html.ActionLink("Добавить новую запись", "Create")
 </p>
 
-<table class="table">
-    <tr>
-        <th> № п/п </th>
-        <th> Реестровый порядковый номер </th>
-        <th> Наименование </th>
-        <th> Кадастровый номер </th>
-        <th> Площадь </th>
-        <th> Балансовая стоимость </th>
-        <th> Статус </th>
-    </tr>
-
-
-    @foreach (var facility in Model)
-    {
+<table class="table" id="FacilityTable">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => facility.PPNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.RegisterSerialNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.CadastralNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.Square)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.BalanceCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => facility.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Редактировать", "Edit", new { id = facility.Id }) |
-                @Html.ActionLink("Подробнее", "Details", new { id = facility.Id }) |
-                @Html.ActionLink("Удалить", "Delete", new { id = facility.Id }) |
-                @Html.ActionLink("Добавить адрес", "EditFacilityAddress", new { id = facility.Id }, new { data_modal = "" })
-            </td>
+            <th> № п/п </th>
+            <th> Реестровый порядковый номер </th>
+            <th> Наименование </th>
+            <th> Кадастровый номер </th>
+            <th> Площадь </th>
+            <th> Балансовая стоимость </th>
+            <th> Статус </th>
+            <th> Операции с объектом </th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var facility in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.PPNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.RegisterSerialNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.CadastralNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.Square)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.BalanceCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => facility.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = facility.Id }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = facility.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = facility.Id }) |
+                    @Html.ActionLink("Добавить адрес", "EditFacilityAddress", new { id = facility.Id }, new { data_modal = "" })
+                    <a href="@Url.Action("GoogleMap", "Facility", new {id = facility.Id})"><img src="~/Content/images/google_maps.jpeg" style="width: 16px; height: 16px;" /></a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modalform")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //debugger;
+            $("#FacilityTable").DataTable();
+            $('#FacilityTable thead th:eq(0)').width('70px');
+            
+
+            $(".dataTables_length").remove();
+            $('#FacilityTable_info').remove();
+
+            $('#FacilityTable_filter label')
+                .contents()
+                .filter(function () {
+                    return (this.nodeType === 3);
+                })
+                .remove();
+            $("#FacilityTable_filter label")
+                .prepend('Поиск: ');
+
+            $('.dataTables_empty').text('Элементы не найдены');
+            $('#FacilityTable_previous').text('Предыдущая');
+            $('#FacilityTable_next').text('Следующая');
+        });
+    </script>
 }

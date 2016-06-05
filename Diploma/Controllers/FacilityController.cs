@@ -143,7 +143,7 @@ namespace Diploma.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult EditFacilityAddress(int? id)
         {
             if (id == null)
@@ -171,6 +171,22 @@ namespace Diploma.Controllers
             }
 
             return PartialView("_EditFacilityAddress", address);
+        }
+
+        [HttpGet]
+        public ActionResult GoogleMap(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Address address = AddressService.GetAddress(id);
+            if (address == null)
+            {
+                return HttpNotFound(String.Format("Элемент с id = {0} не найден!", id));
+            }
+            return View(address);
         }
     }
 }
