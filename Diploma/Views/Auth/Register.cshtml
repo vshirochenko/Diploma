@@ -1,16 +1,42 @@
 ﻿@model Diploma.ViewModels.RegisterViewModel
+
 @{
-    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link type="text/css" href="~/Content/Register.css" rel="stylesheet" />
 
 <h2>Регистрация</h2>
 
-@Html.ValidationSummary(false)
+@*@Html.ValidationSummary(true)*@
 
 @using (Html.BeginForm())
 {
-    @Html.EditorForModel()
-    <p>
-        <button type="submit">Зарегистрироваться</button>
+    @*@Html.EditorForModel()*@
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 10px;">
+        <button type="submit" class="btn btn-default">Зарегистрироваться</button>
     </p>
 }

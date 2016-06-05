@@ -54,7 +54,7 @@ namespace Diploma.Controllers
                 return Redirect(GetRedirectUrl(model.ReturnUrl));
             }
 
-            ModelState.AddModelError("", "Неверный e-mail или пароль");
+            ModelState.AddModelError("", "Неверный логин или пароль");
             return View();
         }
 

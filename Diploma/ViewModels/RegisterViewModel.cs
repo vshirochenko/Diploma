@@ -16,10 +16,10 @@ namespace Diploma.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
-        public string Country { get; set; }
+        //[Required]
+        //public string Country { get; set; }
 
-        [Required]
-        public int Age { get; set; }
+        //[Required]
+        //public int Age { get; set; }
     }
 }
