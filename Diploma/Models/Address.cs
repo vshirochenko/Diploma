@@ -31,11 +31,13 @@ namespace Diploma.Models
         /// <summary>
         /// Широта
         /// </summary>
+        [DisplayName("Широта")]
         public double GeoLatitude { get; set; }
 
         /// <summary>
         /// Долгота
         /// </summary>
+        [DisplayName("Долгота")]
         public double GeoLongitude { get; set; }
 
         public virtual Facility Facility { get; set; }

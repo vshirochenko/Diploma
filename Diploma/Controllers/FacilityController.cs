@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -43,6 +44,7 @@ namespace Diploma.Controllers
         }
 
         // Открываем форму создания нового элемента
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Create()
         {
@@ -70,6 +72,7 @@ namespace Diploma.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -106,6 +109,8 @@ namespace Diploma.Controllers
             return View(facilityToUpdate);
         }
 
+        [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)

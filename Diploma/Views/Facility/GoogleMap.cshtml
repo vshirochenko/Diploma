@@ -28,34 +28,36 @@
             google.maps.visualRefresh = true;
             // установка основных координат
             //var Moscow = new google.maps.LatLng(55.752622, 37.617567);
-            var Moscow = new google.maps.LatLng(54.384036, 20.645039);
+            var Bagrationovsk = new google.maps.LatLng(54.384036, 20.645039);
             //54.384036, 20.645039
             // Установка общих параметров отображения карты, как масштаб, центральная точка и тип карты
             var mapOptions = {
                 zoom: 15,
-                center: Moscow,
+                center: Bagrationovsk,
                 mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
             };
 
             // Встраиваем гугл-карты в элемент на странице и получаем объект карты
             var map = new google.maps.Map(document.getElementById("canvas"), mapOptions);
 
-            // Настраиваем красный маркер, который будет использоваться для центральной точки
-            var myLatlng = new google.maps.LatLng(54.384036, 20.645039);
-
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: 'Станции метро'
-            });
-
-            // Берем для маркера иконку с сайта google
-            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
-
+            // Позиция объекта на карте
             var position = {
                 Latitude: @Model.GeoLatitude,
                 Longitude: @Model.GeoLongitude,
             };
+
+            // Настраиваем красный маркер, который будет использоваться для центральной точки
+            //var myLatlng = new google.maps.LatLng(54.384036, 20.645039);
+            var myLatlng = new google.maps.LatLng(position.Latitude, position.Longitude);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Объект'
+            });
+
+            // Берем для маркера иконку с сайта google
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
 
             var address = {
                 Locality: "@Model.Locality",
@@ -71,5 +73,5 @@
                 infoWindow.open(map, marker);
             });
         }
-    </script>
+</script>
 }

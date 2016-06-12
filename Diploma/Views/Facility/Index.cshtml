@@ -76,7 +76,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             //debugger;
-            $("#FacilityTable").DataTable();
+            $("#FacilityTable").DataTable({
+                "ordering": true
+            });
             $('#FacilityTable thead th:eq(0)').width('70px');
             
 
@@ -93,8 +95,8 @@
                 .prepend('Поиск: ');
 
             $('.dataTables_empty').text('Элементы не найдены');
-            $('#FacilityTable_previous').text('Предыдущая');
-            $('#FacilityTable_next').text('Следующая');
+            //$('#FacilityTable_previous').text('Предыдущая');
+            //$('#FacilityTable_next').text('Следующая');
         });
     </script>
 }

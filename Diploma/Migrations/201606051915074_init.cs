@@ -15,6 +15,8 @@ namespace Diploma.Migrations
                         Locality = c.String(),
                         Street = c.String(),
                         HouseNumber = c.Int(),
+                        GeoLatitude = c.Double(nullable: false),
+                        GeoLongitude = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.FacilityId)
                 .ForeignKey("dbo.Facilities", t => t.FacilityId)
